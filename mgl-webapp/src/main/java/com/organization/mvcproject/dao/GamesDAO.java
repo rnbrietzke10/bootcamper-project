@@ -1,22 +1,14 @@
-package com.organization.mvcproject.service;
+package com.organization.mvcproject.dao;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import com.organization.mvcproject.model.Game;
 
-@Service
-public class GameServiceImpl implements GameService {
-
-	/**
-	 * TODO 2.0 The class that interacts with persistent data is called a Data Access Object(DAO)
-	 *  or a Repository class. The private static list is mocking our persistance of games.
-	 *   
-	 *  Move this list, and methods operating on this list to an appropriately named package and class.
-	 */
-	
+@Repository
+public class GamesDAO {
 	private static Long gameId = new Long(0);
 	private static Long companyId = new Long(0);
 	private static List<Game> games = new ArrayList<>();
@@ -48,22 +40,34 @@ public class GameServiceImpl implements GameService {
 
 		return games;
 	}
+	
 
-	@Override
-	public List<Game> retrieveAllGames() {
+
+	public static List<Game> findAllGames() {
 		return games;
 	}
 
-	@Override
-	public Game saveGame(Game game) {
+	
+	public static  Game saveOrUpdateGame(Game game) {
+		if(game.getId() != null) {
+			for(int i = 0; i < games.size(); i++) {
+				
+			}
+		}
+		games.add(game);
+		return game;
+	}
+	
+	public static  Game updateGame(Game game) {
 		game.setId(++gameId);
 		games.add(game);
 		return game;
 	}
-
-	@Override
-	public Game updateGame(Game game) {
-		// TODO Auto-generated method stub
+	
+	
+	public Boolean deleteGame(long id) {
 		return null;
 	}
+
+
 }

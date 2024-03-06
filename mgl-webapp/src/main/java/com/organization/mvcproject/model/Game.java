@@ -1,16 +1,14 @@
 package com.organization.mvcproject.model;
 
-
-import java.util.List;
-
 import org.springframework.stereotype.Component;
 
 @Component
-public class Company {
+public class Game {
+
 
 	private Long id;
 	private String name;
-	private List<Game> gamesMade;
+	private String genre;
 
 	public Long getId() {
 		return id;
@@ -21,18 +19,19 @@ public class Company {
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public List<Game> getGamesMade() {
-		return gamesMade;
+	public String getGenre() {
+		return this.genre;
 	}
 
-	public void setGamesMade(List<Game> gamesMade) {
-		this.gamesMade = gamesMade;
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
+
 }
