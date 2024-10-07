@@ -33,4 +33,10 @@ public class GameController {
 		gameService.saveGame(game);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
+	
+	@RequestMapping(value = "/", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Void> updateGame(@RequestBody Game game) {
+		gameService.saveGame(game);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 }

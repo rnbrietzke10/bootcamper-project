@@ -20,7 +20,7 @@ public class GameServiceImpl implements GameService {
 	@Override
 	public Game saveGame(Game game) {
 		
-		return GamesDAO.saveGame(game);
+		return GamesDAO.saveOrUpdateGame(game);
 	}
 	
 	
